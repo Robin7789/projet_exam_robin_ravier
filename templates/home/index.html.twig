@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des collections{% endblock %}
+
+{% block body %}
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">Liste des collections</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {% for collectionGame in collectionGames %}
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+           
+            <div class="p-4">
+                <h2 class="text-xl font-bold">Name{{ collectionGame.name }}</h2>
+                <p class="text-gray-600">Description{{ collectionGame.personalNote }}</p>
+                <a href="{{ path('app_collection_show', { 'id': collectionGame.id }) }}" class="mt-4 inline-block text-blue-500 hover:text-blue-700">Voir la collection</a>
+            </div>
+        </div>
+        {% else %}
+        <p class="text-gray-600">Aucune collection disponible.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

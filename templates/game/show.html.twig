@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Game{% endblock %}
+
+{% block body %}
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">Game</h1>
+
+    <table class="min-w-full divide-y divide-gray-200 shadow-md rounded-lg overflow-hidden mb-6">
+        <tbody class="bg-white divide-y divide-gray-200">
+            <tr>
+                <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Id</th>
+                <td class="px-6 py-4 whitespace-nowrap">{{ game.id }}</td>
+            </tr>
+            <tr>
+                <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
+                <td class="px-6 py-4 whitespace-nowrap">{{ game.title }}</td>
+            </tr>
+            <tr>
+                <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Genre</th>
+                <td class="px-6 py-4 whitespace-nowrap">{{ game.genre }}</td>
+            </tr>
+            <tr>
+                <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Developer</th>
+                <td class="px-6 py-4 whitespace-nowrap">{{ game.developer }}</td>
+            </tr>
+            <tr>
+                <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Release Date</th>
+                <td class="px-6 py-4 whitespace-nowrap">{{ game.releaseDate ? game.releaseDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Platform</th>
+                <td class="px-6 py-4 whitespace-nowrap">{{ game.platform }}</td>
+            </tr>
+            <tr>
+                <th class="border px-4 py-2">Image</th>
+                <td class="border px-4 py-2">
+                    {% if game.image %}
+                        <img src="{{ asset('uploads/images/' ~ game.image) }}" alt="{{ game.title }}" class="max-w-xs h-auto rounded-lg">
+                    {% else %}
+                        No image available
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="flex space-x-4">
+        <a href="{{ path('app_game_index') }}" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700">
+            Back to list
+        </a>
+
+        <a href="{{ path('app_game_edit', {'id': game.id}) }}" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-700">
+            Edit
+        </a>
+    </div>
+
+    <div class="mt-4">
+        {{ include('game/_delete_form.html.twig') }}
+    </div>
+</div>
+{% endblock %}
