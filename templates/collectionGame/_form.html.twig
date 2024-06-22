@@ -1,0 +1,25 @@
+{{ form_start(form) }}
+    <div class="mb-4">
+        {{ form_row(form.name, {
+            'attr': {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'}
+        }) }}
+    </div>
+    <div class="mb-4">
+        {{ form_row(form.personal_note, {
+            'attr': {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'}
+        }) }}
+    </div>
+    <div class="mb-4">
+        {{ form_row(form.added_date, {
+            'attr': {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'}
+        }) }}
+    </div>
+    <div class="mb-4">
+        {{ form_row(form.game, {
+            'attr': {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'}
+        }) }}
+    </div>
+    <button class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        {{ button_label|default('Enregistrer') }}
+    </button>
+{{ form_end(form) }}

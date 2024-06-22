@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/collection/game')]
+#[Route('/profile/collection/game')]
 class CollectionGameController extends AbstractController
 {
     #[Route('/', name: 'app_collection_game_index', methods: ['GET'])]
@@ -71,7 +71,7 @@ class CollectionGameController extends AbstractController
     #[Route('/{id}', name: 'app_collection_game_delete', methods: ['POST'])]
     public function delete(Request $request, CollectionGame $collectionGame, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$collectionGame->getId(), $request->getPayload()->getString('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $collectionGame->getId(), $request->getPayload()->getString('_token'))) {
             $entityManager->remove($collectionGame);
             $entityManager->flush();
         }

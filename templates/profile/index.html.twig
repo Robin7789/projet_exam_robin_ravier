@@ -1,11 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Edit Profile</h1>
-    {{ form_start(profileForm) }}
-        {{ form_row(profileForm.username) }}
-        {{ form_row(profileForm.profile_picture) }}
-        {{ form_row(profileForm.bio) }}
-        <button type="submit">Save changes</button>
-    {{ form_end(profileForm) }}
+<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+        <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+            <div class="max-w-md mx-auto">
+                <h1 class="text-2xl font-semibold text-center text-gray-800 mb-4">Editer le Profil</h1>
+                {{ form_start(profileForm, {'attr': {'class': 'space-y-6'}}) }}
+                    <div class="mb-4">
+                        {{ form_row(profileForm.username, {
+                            'attr': {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'}
+                        }) }}
+                    </div>
+                    <div class="mb-4">
+                        {{ form_row(profileForm.profile_picture, {
+                            'attr': {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'}
+                        }) }}
+                    </div>
+                    <div class="mb-4">
+                        {{ form_row(profileForm.bio, {
+                            'attr': {'class': 'appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'}
+                        }) }}
+                    </div>
+                    <div>
+                        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Enregistrer
+                        </button>
+                    </div>
+                {{ form_end(profileForm) }}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

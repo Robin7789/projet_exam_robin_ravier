@@ -11,10 +11,11 @@
     <body class="bg-gray-100 text-gray-900 flex flex-col justify-center items-center min-h-screen">
         <nav class="bg-gray-800 p-4 rounded-lg shadow-lg">           
                 <div class="container mx-auto flex justify-between items-center space-x-4">
-                    <a class="text-gray-300 hover:text-white" href="{{ path('app_home') }}">Collections</a>
+                    <a class="text-gray-300 hover:text-white" href="{{ path('app_collection') }}">Collections</a>
                     <a class="text-gray-300 hover:text-white" href="{{ path('app_search') }}">Recherche</a>
                      <a class="text-gray-300 hover:text-white" href="{{ path('app_newsletter') }}">Newsletter</a>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <a class="text-gray-300 hover:text-white" href="{{ path('app_game_index') }}">Game</a>
                         <a class="text-gray-300 hover:text-white" href="{{ path('app_profile') }}">Profil</a>
                         <a class="text-gray-300 hover:text-white" href="{{ path('app_logout') }}">Se déconnecter</a>
                     {% else %}

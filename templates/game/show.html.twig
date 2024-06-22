@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="container mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-6">Game</h1>
+    <h1 class="text-3xl font-bold mb-6">Jeu</h1>
 
     <table class="min-w-full divide-y divide-gray-200 shadow-md rounded-lg overflow-hidden mb-6">
         <tbody class="bg-white divide-y divide-gray-200">
@@ -38,7 +38,7 @@
                     {% if game.image %}
                         <img src="{{ asset('uploads/images/' ~ game.image) }}" alt="{{ game.title }}" class="max-w-xs h-auto rounded-lg">
                     {% else %}
-                        No image available
+                        Pas d'image
                     {% endif %}
                 </td>
             </tr>
@@ -47,11 +47,11 @@
 
     <div class="flex space-x-4">
         <a href="{{ path('app_game_index') }}" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700">
-            Back to list
+            Retour à la liste
         </a>
 
         <a href="{{ path('app_game_edit', {'id': game.id}) }}" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-700">
-            Edit
+            Modifier
         </a>
     </div>
 

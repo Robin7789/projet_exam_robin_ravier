@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+        <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+            <div class="max-w-md mx-auto">
+                <h1 class="text-2xl font-semibold text-center text-gray-800 mb-4">Détails de la Collection</h1>
+                <div class="mb-4">
+                    <p class="text-gray-600"><span class="font-semibold">Nom : </span>{{ collection.name }}</p>
+                </div>
+                <div class="mb-4">
+                    <p class="text-gray-600"><span class="font-semibold">Note Personnelle : </span>{{ collection.personalNote }}</p>
+                </div>
+                <div class="mb-4">
+                    <p class="text-gray-600"><span class="font-semibold">Date Ajoutée : </span>{{ collection.addedDate|date('Y-m-d') }}</p>
+                </div>
+                <div class="mb-4">
+                    <p class="text-gray-600"><span class="font-semibold">Jeu : </span>{{ collection.game.title }}</p>
+                </div>
+                <div class="mt-6">
+                    <a href="{{ path('app_collection') }}" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline block text-center">
+                        Retour à la liste
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

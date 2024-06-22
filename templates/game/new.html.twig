@@ -3,7 +3,7 @@
 {% block body %}
     <div class="flex justify-center items-center min-h-screen bg-gray-100">
         <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-            <h1 class="text-2xl font-bold mb-4">New Game</h1>
+            <h1 class="text-2xl font-bold mb-4">Nouveau Jeu</h1>
             {{ form_start(gameForm, {'attr': {'class': 'space-y-4'}}) }}
                 <div>
                     {{ form_row(gameForm.title, {
@@ -43,7 +43,7 @@
                 </div>
                 <div>
                     <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Save
+                        Enregistrer
                     </button>
                 </div>
             {{ form_end(gameForm) }}

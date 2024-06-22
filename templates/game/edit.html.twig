@@ -4,15 +4,57 @@
 
 {% block body %}
 <div class="container mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-6">Edit Game</h1>
+    <h1 class="text-3xl font-bold mb-6">Editer le Jeu</h1>
 
     <div class="bg-white shadow-md rounded-lg p-6 mb-6">
-        {{ include('game/_form.html.twig', {'button_label': 'Update'}) }}
+        {{ form_start(gameForm, {'attr': {'class': 'space-y-6'}}) }}
+            <div>
+                {{ form_row(gameForm.title, {
+                    'label_attr': {'class': 'block text-sm font-medium text-gray-700'},
+                    'attr': {'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}
+                }) }}
+            </div>
+            <div>
+                {{ form_row(gameForm.image, {
+                    'label_attr': {'class': 'block text-sm font-medium text-gray-700'},
+                    'attr': {'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}
+                }) }}
+            </div>
+            <div>
+                {{ form_row(gameForm.genre, {
+                    'label_attr': {'class': 'block text-sm font-medium text-gray-700'},
+                    'attr': {'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}
+                }) }}
+            </div>
+            <div>
+                {{ form_row(gameForm.developer, {
+                    'label_attr': {'class': 'block text-sm font-medium text-gray-700'},
+                    'attr': {'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}
+                }) }}
+            </div>
+            <div>
+                {{ form_row(gameForm.release_date, {
+                    'label_attr': {'class': 'block text-sm font-medium text-gray-700'},
+                    'attr': {'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}
+                }) }}
+            </div>
+            <div>
+                {{ form_row(gameForm.platform, {
+                    'label_attr': {'class': 'block text-sm font-medium text-gray-700'},
+                    'attr': {'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'}
+                }) }}
+            </div>
+            <div>
+                <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    {{ button_label|default('Enregistrer') }}
+                </button>
+            </div>
+        {{ form_end(gameForm) }}
     </div>
 
     <div class="flex space-x-4">
         <a href="{{ path('app_game_index') }}" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700">
-            Back to list
+            Retour à la liste
         </a>
 
         {{ include('game/_delete_form.html.twig') }}
