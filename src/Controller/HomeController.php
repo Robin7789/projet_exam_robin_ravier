@@ -13,12 +13,12 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(EntityManagerInterface $entityManager): Response
     {
-        $collectionGames = $entityManager->getRepository(CollectionGame::class)->findAll();
-        $collectionGames = [];
+        $collections = $entityManager->getRepository(CollectionGame::class)->findAll();
+        $collections = [];
 
 
         return $this->render('home/index.html.twig', [
-            'collectionGames' => $collectionGames,
+            'collections' => $collections,
         ]);
     }
 }

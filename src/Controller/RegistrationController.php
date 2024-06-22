@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Security\User;
-use App\Controller\AppAuthenticator;
+use App\Security\AppAuthenticator;
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

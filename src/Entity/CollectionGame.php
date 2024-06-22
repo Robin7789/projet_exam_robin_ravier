@@ -3,7 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CollectionGameRepository;
-use App\Entity\User;
+use App\Security\User;
+use App\Entity\Game;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,34 +13,61 @@ class CollectionGame
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
-
+    #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
     #[ORM\ManyToOne(targetEntity: User::class)]
     #[ORM\JoinColumn(nullable: false)]
-    private ?int $user = null;
+    private ?User $user = null;
 
     #[ORM\ManyToOne(targetEntity: Game::class)]
     #[ORM\JoinColumn(nullable: false)]
-    private ?int $game = null;
+    private ?Game $game = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $personalNote = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $addedDate = null;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getGame(): ?Game
+    {
+        return $this->game;
+    }
+
+    public function setGame(?Game $game): self
+    {
+        $this->game = $game;
+
+        return $this;
+    }
 
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -51,7 +79,7 @@ class CollectionGame
         return $this->personalNote;
     }
 
-    public function setPersonalNote(string $personalNote): static
+    public function setPersonalNote(?string $personalNote): self
     {
         $this->personalNote = $personalNote;
 
@@ -63,7 +91,7 @@ class CollectionGame
         return $this->addedDate;
     }
 
-    public function setAddedDate(\DateTimeInterface $addedDate): static
+    public function setAddedDate(\DateTimeInterface $addedDate): self
     {
         $this->addedDate = $addedDate;
 

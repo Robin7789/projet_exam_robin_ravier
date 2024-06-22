@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CollectionGame index{% endblock %}
+
+{% block body %}
+    <h1>CollectionGame index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>PersonalNote</th>
+                <th>AddedDate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for collection_game in collection_games %}
+            <tr>
+                <td>{{ collection_game.id }}</td>
+                <td>{{ collection_game.name }}</td>
+                <td>{{ collection_game.personalNote }}</td>
+                <td>{{ collection_game.addedDate ? collection_game.addedDate|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_collection_game_show', {'id': collection_game.id}) }}">show</a>
+                    <a href="{{ path('app_collection_game_edit', {'id': collection_game.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_collection_game_new') }}">Create new</a>
+{% endblock %}
