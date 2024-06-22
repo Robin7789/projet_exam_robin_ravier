@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CollectionGameRepository;
-use App\Security\User;
+use App\Entity\User;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -16,6 +16,14 @@ class CollectionGame
 
     private ?int $id = null;
 
+    #[ORM\ManyToOne(targetEntity: User::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?int $user = null;
+
+    #[ORM\ManyToOne(targetEntity: Game::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?int $game = null;
+
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
@@ -25,16 +33,6 @@ class CollectionGame
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $addedDate = null;
 
-    #[ORM\Column]
-    private ?int $userId = null;
-
-    #[ORM\Column]
-    private ?int $gameId = null;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getName(): ?string
     {
@@ -68,30 +66,6 @@ class CollectionGame
     public function setAddedDate(\DateTimeInterface $addedDate): static
     {
         $this->addedDate = $addedDate;
-
-        return $this;
-    }
-
-    public function getUserId(): ?int
-    {
-        return $this->userId;
-    }
-
-    public function setUserId(int $userId): static
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    public function getGameId(): ?int
-    {
-        return $this->gameId;
-    }
-
-    public function setGameId(int $gameId): static
-    {
-        $this->gameId = $gameId;
 
         return $this;
     }

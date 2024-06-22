@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>New Collection</h1>
+    {{ form_start(collectionForm) }}
+        {{ form_row(collectionForm.game) }}
+        {{ form_row(collectionForm.personal_note) }}
+        <button type="submit">Save</button>
+    {{ form_end(collectionForm) }}
+{% endblock %}
